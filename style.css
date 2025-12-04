@@ -1,0 +1,54 @@
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+  background: radial-gradient(1200px 800px at 20% 10%, #ffe4ef 0%, #fff8fb 45%, #ffffff 100%);
+  color: #333;
+  line-height: 1.6;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; position: relative; }
+header { text-align: center; margin-bottom: 28px; }
+h1 { font-size: 40px; letter-spacing: -0.5px; color: #e91e63; }
+.subtitle { color: #c2185b; opacity: 0.8; }
+
+main { background: #ffffffcc; backdrop-filter: blur(6px); border-radius: 18px; padding: 28px; box-shadow: 0 10px 30px rgba(233, 30, 99, 0.15); }
+
+#letter { min-height: 200px; display: grid; gap: 12px; padding: 6px; }
+.line { font-size: 22px; opacity: 1; transform: translateY(0); transition: all 360ms ease; }
+.line.hidden { opacity: 0; transform: translateY(8px); height:0; overflow:hidden; }
+.line.strong { font-weight: 700; color: #ad1457; }
+
+.controls { display: flex; gap: 10px; margin-top: 18px; }
+.btn {
+  appearance: none; border: none; cursor: pointer;
+  padding: 12px 16px; border-radius: 12px; font-size: 16px; font-weight: 600;
+  background: #e91e63; color: #fff; box-shadow: 0 6px 16px rgba(233,30,99,0.35);
+  transition: transform .08s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(233,30,99,0.45); }
+.btn:active { transform: translateY(0px) scale(0.99); }
+.btn.ghost { background: transparent; color: #e91e63; border: 2px solid #e91e63; box-shadow: none; }
+
+footer { text-align: center; margin-top: 20px; color: #777; }
+footer .hint { font-size: 13px; margin-top: 6px; }
+
+/* floating hearts */
+.hearts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.hearts span {
+  position: absolute; bottom: -40px; left: 10%;
+  font-size: 22px; animation: float 8s infinite linear;
+  opacity: 0.7;
+}
+.hearts span:nth-child(2) { left: 30%; animation-duration: 10s; font-size: 18px; }
+.hearts span:nth-child(3) { left: 50%; animation-duration: 9s; font-size: 26px; }
+.hearts span:nth-child(4) { left: 70%; animation-duration: 11s; font-size: 20px; }
+.hearts span:nth-child(5) { left: 85%; animation-duration: 12s; font-size: 24px; }
+
+@keyframes float {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.7; }
+  50%  { transform: translateY(-50vh) translateX(-10px) rotate(10deg); }
+  100% { transform: translateY(-110vh) translateX(10px) rotate(-10deg); opacity: 0; }
+}
